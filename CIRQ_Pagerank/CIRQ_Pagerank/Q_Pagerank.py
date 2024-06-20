@@ -145,20 +145,20 @@ PRC = normal_pagerank(P,convergence_threshold=1e-8)
 print(np.round(PRC,3))
 
 
-# G = nx.from_numpy_matrix(H)
-# pos = nx.spring_layout(G, seed=3113794652)  # positions for all nodes
-# nx.draw_networkx_edges(G, pos, width=1.0, alpha=1)
-# labels = {}
-# labels[0] = "1"
-# labels[1] = "2"
-# labels[2] = "3"
-# labels[3] = "4"
-# labels[4] = "5"
-# labels[5] = "6"
-# nx.draw_networkx_labels(G, pos, labels, font_size=22, font_color="Black")
+'''G = nx.from_numpy_matrix(H)
+pos = nx.spring_layout(G, seed=3113794652)  # positions for all nodes
+nx.draw_networkx_edges(G, pos, width=1.0, alpha=1)
+labels = {}
+labels[0] = "1"
+labels[1] = "2"
+labels[2] = "3"
+labels[3] = "4"
+labels[4] = "5"
+labels[5] = "6"
+nx.draw_networkx_labels(G, pos, labels, font_size=22, font_color="Black")
 
-# #nx.draw_circular(G2)
+nx.draw_circular(G2)
 
 
-# plt.axis('equal')
-# plt.show()
+plt.axis('equal')
+plt.show()'''
