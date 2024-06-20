@@ -29,7 +29,7 @@ def visualize_original_graph(distance_matrix):
     nx.draw_networkx_edges(G, pos, edgelist=G.edges(), edge_color='gray')
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color='red')
     plt.title('Original Graph with Edge Weights')
-    plt.show()
+   # plt.show()
 
 def visualize_tsp(tour, distance_matrix):
     G = nx.Graph()
@@ -61,6 +61,13 @@ distance_matrix = np.array([
     [15, 35, 0, 30],
     [20, 25, 30, 0]
 ])
+
+# Random distance matrix
+distance_matrix_random = nx.complete_graph(5)
+for (u, v, w) in distance_matrix_random.edges(data=True):
+        w['weight'] = np.random.randint(1, 100)
+distance_matrix = nx.to_numpy_array(distance_matrix_random)
+print(distance_matrix)
 
 # Visualize original graph
 visualize_original_graph(distance_matrix)
