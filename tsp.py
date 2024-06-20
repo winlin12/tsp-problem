@@ -13,6 +13,23 @@ def tsp(distance_matrix):
     
     return tour, total_distance
 
+def tsp_dp(distance_matrix):
+    n = len(distance_matrix)
+    all_sets = 1 << n
+    dp = [[float('inf')] * n for _ in range(all_sets)]
+    dp[1][0] = 0
+
+    for mask in range(1, all_sets):
+        for u in range(n):
+            if mask & (1 << u):
+                for v in range(n):
+                    if mask & (1 << v) and u != v:
+                        dp[mask][u] = min(dp[mask][u], dp[mask ^ (1 << u)][v] + distance_matrix[v][u])
+
+    min_distance = min(dp[all_sets - 1][u] + distance_matrix[u][0] for u in range(1, n))
+    
+    return min_distance
+
 def visualize_original_graph(distance_matrix):
     G = nx.complete_graph(len(distance_matrix))
     pos = {}
@@ -76,4 +93,6 @@ visualize_original_graph(distance_matrix)
 tour, total_distance = tsp(distance_matrix)
 print("Tour:", tour)
 print("Total distance:", total_distance)
+min_distance = tsp_dp(distance_matrix)
+print("Min Distance: ", min_distance)
 visualize_tsp(tour, distance_matrix)
