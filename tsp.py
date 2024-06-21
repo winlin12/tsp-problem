@@ -1,6 +1,8 @@
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
+from itertools import permutations, combinations
+from dwave.system import DWaveSampler
 
 def tsp(distance_matrix):
     G = nx.complete_graph(len(distance_matrix))
